@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
-
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  <div>
+    <div>
+      <span><%=@post.title%> by <%=@user.name%></span>
+      <p>Number of comments: <%=@post.comments_counter%> Number of likes: <%=@post.likes_counter%></p>
+    </div>
+    <p><%=@post.text%></p>
+  </div>
+  <div>
+    <%@post.comments.each do |comment|%>
+          <p><%=comment.text%></p>
+    <% end %>
+  </div>
 </div>
