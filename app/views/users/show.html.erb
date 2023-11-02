@@ -8,7 +8,7 @@
   </div>
   <div class="post_section">
     <h2>User Posts</h2>
-    <% @user.posts.each do |post| %>
+    <% @user.most_recent_post.each do |post| %>
       <%= render 'shared/post', post: post%>
     <% end %>
     <div>
