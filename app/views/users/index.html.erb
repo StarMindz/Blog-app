@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
+<div class="main_container">
+  <h1>All Users</h1>
 
-<h1>All Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <h2>User name:<%= user.name %></h2>
-    <div>Number of Posts: <%= user.post_counter %></div>
-  <% end %>
+  <div id="users" class="users">
+    <% @users.each do |user| %>
+      <%= render 'shared/user', user: user%>
+    <% end %>
+  </div>
 </div>

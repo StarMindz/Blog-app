@@ -1,29 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<div>
-<h1><%=@user.name%></h1>
-<h2>All User Posts<h2>
-<div>Number of post: <%=@user.post_counter%></div>
+<div class="post_main_container">
+  <div>
+    <%= render 'shared/user', user: @user%>
+  </div>
+  <h2>All User Posts</h2>
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <p>
+        <div>
+          <%= render 'shared/post', post: post%>
+        </div>
+        <div class="comments">
+          <%post.most_recent_comments.each do |comment|%>
+            <div class="user_comment">
+              <p>User: <%=comment.author_id%></p>
+              <p>Comment: <%=comment.text%></p>
+            </div>
+          <% end %>
+        </div> 
+      </p>
+    <% end %>
 </div>
-
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <p>
-     <div>
-      <h2><%=post.title%></h2>
-      <p><%=post.text%></p>
-      <div>
-        <p>Number of Comments: <%=post.comments_counter%></p>
-        <p>Number of Likes: <%=post.likes_counter%></p>
-      </div>
-     </div>
-     <div>
-       <%post.most_recent_comments.each do |comment|%>
-          <p><%=comment.text%></p>
-       <% end %>
-     </div> 
-    </p>
-  <% end %>
 </div>
-
