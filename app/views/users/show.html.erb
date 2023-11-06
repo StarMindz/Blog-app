@@ -1,18 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<div>
-  <h1><%=@user.name%></h1>
-  <%@user.post_counter%>
-</div>
-<div><%=@user.bio%><div>
-<div>
-  <% @user.posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    <div><%= post.text %></div>
+<div class="specific_user">
+  <%= render 'shared/user', user: @user%>
+  <div class="bio_section">
+    <h2>Bio</h2>
+    <%=@user.bio%>
+  </div>
+  <div class="post_section">
+    <h2>User Posts</h2>
+    <% @user.most_recent_post.each do |post| %>
+      <%= render 'shared/post', post: post%>
+    <% end %>
     <div>
-    <div>comments<%=post.comments_counter%></div>
-    <div>likes<%=post.likes_counter%></div>
+      <button class='user_button'>
+        <%= link_to 'See all posts', user_posts_path(@user) %>
+      </button>
     </div>
-  <% end %>
-</div>
+  </div>
+<div>
 
