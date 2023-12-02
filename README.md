@@ -168,7 +168,7 @@ If you like this project. Don't forget to give it a ⭐️
 
 - **What inspired me to create this project?**
 
-  - The inspiration for this project came from microverse – a software development boot camp where you work with teammates remotely on different projects.
+  - the inspiration for this project came from microverse – a software development boot camp where you work with teammates remotely on different projects.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
